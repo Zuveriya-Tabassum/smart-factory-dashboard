@@ -1,0 +1,142 @@
+/* Soft Industrial Minimal Theme + Animated UI */
+
+/* Base variables for fallback */
+:root {
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-2: #14b8a6;
+  --shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+  --healthy: #22c55e;
+  --warning: #f59e0b;
+  --critical: #ef4444;
+
+  --status-active: #22c55e;
+  --status-idle: #f59e0b;
+  --status-error: #ef4444;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg: #f7fafc;
+  --text: #0f172a;
+  --muted: #596274;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --accent: #2563eb;   /* blue */
+  --accent-2: #14b8a6; /* teal */
+  --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+
+  --healthy: #22c55e;
+  --warning: #f59e0b;
+  --critical: #ef4444;
+
+  --status-active: #22c55e;
+  --status-idle: #f59e0b;
+  --status-error: #ef4444;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --card-bg: #12172a;
+  --card-border: #1f2937;
+  --accent: #7dd3fc;   /* sky */
+  --accent-2: #93c5fd; /* blue */
+  --shadow: 0 10px 28px rgba(0,0,0,0.35);
+
+  --healthy: #10b981;
+  --warning: #f59e0b;
+  --critical: #f87171;
+
+  --status-active: #10b981;
+  --status-idle: #f59e0b;
+  --status-error: #f87171;
+}
+
+/* Sunset Pastel theme (inspired by your image: blue/peach walls) */
+[data-theme="sunset"] {
+  --bg: #fef6f3;              /* light peach wash */
+  --text: #273444;            /* deep slate */
+  --muted: #6b7a8c;           /* cool grey */
+  --card-bg: #ffffff;
+  --card-border: #ffd6cc;     /* soft peach border */
+  --accent: #ff8fa3;          /* coral/rose */
+  --accent-2: #7aa7c7;        /* dusty sky blue */
+  --shadow: 0 12px 30px rgba(255, 143, 163, 0.18);
+
+  --healthy: #78c2ad;         /* minty green */
+  --warning: #ffb366;         /* warm amber */
+  --critical: #ff6b6b;        /* lively coral red */
+
+  --status-active: #78c2ad;
+  --status-idle: #ffb366;
+  --status-error: #ff6b6b;
+}
+
+/* Animated utility classes */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 320ms ease-out both;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+  border-color: var(--accent);
+}
+
+.btn {
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  transition: transform 120ms ease, box-shadow 180ms ease, filter 180ms ease, background-color 180ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.btn.secondary {
+  background: var(--accent-2);
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.badge-healthy { background-color: var(--healthy); }
+.badge-warning { background-color: var(--warning); }
+.badge-critical { background-color: var(--critical); }
+
+.badge-active { background-color: var(--status-active); }
+.badge-idle { background-color: var(--status-idle); }
+.badge-error { background-color: var(--status-error); }
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0px); }
+}
